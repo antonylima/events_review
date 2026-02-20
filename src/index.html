@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revisão de Eventos</title>
+    <link rel="stylesheet" href="/styles.css">
+
+</head>
+<body>
+    <header>
+        <h1>Revisão de Eventos</h1>
+        <button id="publishAllBtn" class="publish-btn">📤 Enviar Oficial</button>
+    </header>
+
+    <main>
+        <div id="eventCardsContainer" class="cards-container">
+            <!-- Event cards will be loaded here -->
+        </div>
+        
+        <div id="loadingSkeleton" class="skeleton-container">
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+        </div>
+        
+        <div id="noEventsMessage" class="no-events-message hidden">
+            <p>Nenhum evento pendente encontrado.</p>
+        </div>
+    </main>
+
+    <!-- Modal for original JSON -->
+    <div id="jsonModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>JSON Original</h2>
+            <pre id="jsonContent"></pre>
+        </div>
+    </div>
+
+    <!-- Confirmation modal -->
+    <div id="confirmModal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Confirmação</h2>
+            <p id="confirmMessage"></p>
+            <div class="modal-actions">
+                <button id="confirmYes" class="btn-confirm">Sim</button>
+                <button id="confirmNo" class="btn-cancel">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/script.js"></script>
+</body>
+</html>

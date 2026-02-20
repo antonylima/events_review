@@ -1,0 +1,390 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background: #2c3e50;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    font-size: 1.8rem;
+}
+
+.publish-btn {
+    background: #27ae60;
+    color: white;
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.publish-btn:hover {
+    background: #219653;
+}
+
+.publish-btn:disabled {
+    background: #95a5a6;
+    cursor: not-allowed;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+    padding: 2rem;
+}
+
+/* Card Styles */
+.event-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-left: 4px solid #bdc3c7;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.event-card.approved {
+    border-left-color: #27ae60;
+}
+
+.event-card.rejected {
+    border-left-color: #e74c3c;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.card-id {
+    font-weight: bold;
+    color: #7f8c8d;
+}
+
+.created-at {
+    font-size: 0.85rem;
+    color: #95a5a6;
+}
+
+.card-field {
+    margin-bottom: 0.8rem;
+}
+
+.field-label {
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    margin-bottom: 0.2rem;
+}
+
+.field-value {
+    padding: 0.4rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #fff;
+    min-height: 1.2rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+textarea.field-value {
+    resize: vertical;
+    min-height: 3rem;
+}
+
+.field-value.editable {
+    background: #f8f9fa;
+    cursor: pointer;
+}
+
+.field-value.editable:hover {
+    background: #eef2f7;
+}
+
+.field-value.modified {
+    background: #fff8e1;
+    border-color: #ffd54f;
+}
+
+.card-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.btn-approve {
+    background: #27ae60;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-approve:hover {
+    background: #219653;
+}
+
+.btn-reject {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-reject:hover {
+    background: #c0392b;
+}
+
+.btn-json {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background 0.3s;
+}
+
+.btn-json:hover {
+    background: #2980b9;
+}
+
+/* Modal Styles */
+.modal {
+    display: block;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+}
+
+#jsonContent {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 4px;
+    max-height: 70vh;
+    overflow: auto;
+    white-space: pre-wrap;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn-confirm {
+    background: #27ae60;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-cancel {
+    background: #95a5a6;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Loading Skeleton */
+.skeleton-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+    padding: 2rem;
+}
+
+.skeleton-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    height: 300px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.skeleton-line {
+    height: 16px;
+    background: #e0e0e0;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.skeleton-line.short {
+    width: 60%;
+}
+
+/* No Events Message */
+.no-events-message {
+    text-align: center;
+    padding: 3rem;
+    color: #7f8c8d;
+    font-size: 1.2rem;
+}
+
+.no-events-message.hidden {
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .cards-container, .skeleton-container {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+    
+    header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .card-actions {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .btn-approve, .btn-reject, .btn-json {
+        width: 100%;
+    }
+}<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revisão de Eventos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Revisão de Eventos</h1>
+        <button id="publishAllBtn" class="publish-btn">📤 Enviar Oficial</button>
+    </header>
+
+    <main>
+        <div id="eventCardsContainer" class="cards-container">
+            <!-- Event cards will be loaded here -->
+        </div>
+        
+        <div id="loadingSkeleton" class="skeleton-container">
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+        </div>
+        
+        <div id="noEventsMessage" class="no-events-message hidden">
+            <p>Nenhum evento pendente encontrado.</p>
+        </div>
+    </main>
+
+    <!-- Modal for original JSON -->
+    <div id="jsonModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>JSON Original</h2>
+            <pre id="jsonContent"></pre>
+        </div>
+    </div>
+
+    <!-- Confirmation modal -->
+    <div id="confirmModal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Confirmação</h2>
+            <p id="confirmMessage"></p>
+            <div class="modal-actions">
+                <button id="confirmYes" class="btn-confirm">Sim</button>
+                <button id="confirmNo" class="btn-cancel">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
