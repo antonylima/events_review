@@ -3,7 +3,7 @@
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'eventos_db');
 define('DB_USER', 'vando');
-define('DB_PASS', 'dbpw');
+define('DB_PASS', '');
 
 // Create PDO connection
 try {
@@ -12,4 +12,5 @@ try {
 } catch(PDOException $e) {
     die(json_encode(['status' => 'error', 'message' => 'Connection failed: ' . $e->getMessage()]));
 }
+
 ?>
